@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>My Family History List</title>
+		<link rel="stylesheet" type="text/css" href="quiz3.css"/>
+		<script src="angular.min.js"></script>
+		<script src="quiz3.js"></script>
+	</head>
+	<body ng-app="familyHistoryListApp" ng-controller="familyHistoryListController">
+		<div id="wrapper">
+			<h1 id="title">My Family History List</h1>
+			<form id="input"  ng-submit="addPerson()">
+				<input id="person" type="text" placeholder="Person" ng-model="person"><br>
+				<input id="father" type="text" placeholder="Father" ng-model="father"><br>
+				<input id="mother" type="text" placeholder="Mother" ng-model="mother"><br>
+				<input id="add-button" type="submit" value="Add New"></button>
+			</form>
+			<div class="list" ng-repeat="x in familyHistoryList">
+				<input type="checkbox" ng-model="x.marked">
+				<span ng-bind="x.person"></span>, <span ng-bind="x.father"></span>, <span ng-bind="x.mother"></span>
+			</div>
+			<form ng-submit="removeMarked()">
+				<input id="remove-button" type="submit" value="Remove Marked"></button>
+			</form>
+		</div>
+	</body>
+</html>
